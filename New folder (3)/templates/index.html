@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Spoilage Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Food Spoilage Prediction</h1>
+        <p class="text-center">Enter the food parameters to check if it's spoiled and estimate time to spoilage.</p>
+        
+        <form method="POST" action="/predict">
+            <div class="form-group">
+                <label for="temperature">Temperature (°C)</label>
+                <input type="number" step="any" class="form-control" id="temperature" name="temperature" placeholder="Enter temperature" required>
+            </div>
+            <div class="form-group">
+                <label for="moisture">Moisture (%)</label>
+                <input type="number" step="any" class="form-control" id="moisture" name="moisture" placeholder="Enter moisture" required>
+            </div>
+            <div class="form-group">
+                <label for="gasvalue">Gas Value (ppm)</label>
+                <input type="number" step="any" class="form-control" id="gasvalue" name="gasvalue" placeholder="Enter gas value" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
+        
+        <div class="mt-4">
+            <h4>Prediction:</h4>
+            <p>{{ prediction_text }}</p>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
